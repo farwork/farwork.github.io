@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>多数多运算式生成器</title>
+  <style>
+    /* 添加一些基本的样式 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #questions {
+      margin-bottom: 20px;
+    }
+    .question {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .answer {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>多数多运算式生成器</h1>
+  <label for="range">计算范围（0 到）：</label>
+  <input type="number" id="range" min="0" max="10" value="10">
+  <label for="questionCount">题目数量：</label>
+  <input type="number" id="questionCount" min="1" value="10">
+  <label for="numOfValues">数值数量：</label>
+  <input type="number" id="numOfValues" min="2" value="3">
+  <label>运算符：</label>
+  <label><input type="checkbox" name="operator" value="+">加法</label>
+  <label><input type="checkbox" name="operator" value="-">减法</label>
+  <label><input type="checkbox" name="operator" value="*">乘法</label>
+  <label><input type="checkbox" name="operator" value="/">除法</label>
+  <button onclick="generateQuestions()">生成题目</button>
+  <div id="questions"></div>
+  <button id="submit-button" onclick="gradeAndShow()" disabled>交卷</button>
+
+  <script>
+    function generateQuestions() {
+      var questionsDiv = document.getElementById('questions');
+      questionsDiv.innerHTML = ''; // 清空之前生成的题目
+
+      var totalQuestions = parseInt(document.getElementById('questionCount').value);
+      var range = parseInt(document.getElementById('range').value) + 1;
+      var numOfValues = parseInt(document.getElementById('numOfValues').value);
+      var checkedOperators = Array.from(document.querySelectorAll('input[name="operator"]:checked')).map(checkbox => checkbox.value);
+
+      var questionCount = 1;
+
+      for (var i = 0; i < totalQuestions; i++) {
+        var expression = generateExpression(range, numOfValues, checkedOperators);
+        var answer = eval(expression);
+
+        var questionElement = document.createElement('p');
+        questionElement.textContent = '(' + questionCount + ') ' + expression + ' = ';
+        questionElement.classList.add('question');
+
+        var answerElement = document.createElement('span');
+        answerElement.textContent = answer;
+        answerElement.classList.add('answer');
+
+        var userAnswer = document.createElement('input');
+        userAnswer.setAttribute('type', 'text');
+        userAnswer.classList.add('user-answer');
+        userAnswer.style.width = '60px';
+        userAnswer.addEventListener('input', function (event) {
+          this.value = this.value.replace(/[^0-9.-]/g, '');
+        });
+
+        questionElement.appendChild(userAnswer);
+        questionElement.appendChild(answerElement);
+        questionElement.appendChild(document.createElement('br'));
+        questionsDiv.appendChild(questionElement);
+
+        questionCount++;
+      }
+
+      document.getElementById('submit-button').disabled = false;
+    }
+
+    function generateExpression(range, numOfValues, operators) {
+      var expression = '';
+      var numStack = [];
+
+      for (var i = 0; i < numOfValues; i++) {
+        numStack.push(Math.floor(Math.random() * range));
+        expression += numStack[numStack.length - 1];
+
+        if (i !== numOfValues - 1) {
+          var operator = operators[Math.floor(Math.random() * operators.length)];
+          expression += operator;
+
+          if (i !== numOfValues - 2 && Math.random() < 0.3) {
+            expression = '(' + expression;
+            numStack = ['('];
+          }
+        }
+      }
+
+      while (numStack.length > 1) {
+        expression += ')';
+        numStack.pop();
+      }
+
+      return expression;
+    }
+
+    function gradeAndShow() {
+      var answers = document.querySelectorAll('.answer');
+      var userAnswers = document.querySelectorAll('.user-answer');
+      var answeredAll = true;
+
+      for (var i = 0; i < userAnswers.length; i++) {
+        if (userAnswers[i].value === '') {
+          answeredAll = false;
+          break;
+        }
+      }
+
+      if (!answeredAll) {
+        var confirmSubmit = confirm('您还没有完成所有题目。确定要交卷吗？');
+        if (confirmSubmit) {
+          showAnswers(answers, userAnswers);
+          disableInputs();
+        }
+      } else {
+        showAnswers(answers, userAnswers);
+        disableInputs();
+      }
+      document.getElementById('submit-button').disabled = true;
+    }
+
+    function showAnswers(answers, userAnswers) {
+      for (var i = 0; i < answers.length; i++) {
+        answers[i].style.display = 'inline';
+        if (!answers[i].textContent.startsWith('答案:')) {
+          answers[i].textContent = '答案: ' + answers[i].textContent;
+        }
+        if (userAnswers[i].value === answers[i].textContent.split(': ')[1]) {
+          userAnswers[i].classList.add('correct');
+          userAnswers[i].classList.remove('incorrect');
+          answers[i].textContent += ' (正确)';
+        } else {
+          userAnswers[i].classList.add('incorrect');
+          userAnswers[i].classList.remove('correct');
+          answers[i].textContent += ' (错误)';
+        }
+      }
+    }
+
+    function disableInputs() {
+      var userAnswers = document.querySelectorAll('.user-answer');
+      for (var i = 0; i < userAnswers.length; i++) {
+        userAnswers[i].readOnly = true;
+      }
+    }
+  </script>
+</body>
+</html>
