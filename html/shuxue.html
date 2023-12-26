@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>加减法计算题生成器</title>
+  <style>
+    /* 添加一些基本的样式 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #questions {
+      margin-bottom: 20px;
+    }
+    .question {
+      display: inline-block;
+      width: 45%; /* 控制每行显示的题目数量 */
+      margin-bottom: 10px;
+    }
+    .answer {
+      display: none; /* 默认隐藏答案 */
+    }
+    .page {
+      margin-bottom: 40px;
+      page-break-inside: avoid;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+    @page {
+      size: A4;
+      margin: 2cm;
+    }
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .question {
+        page-break-inside: avoid; /* 避免题目被分页 */
+      }
+      .answer {
+        display: block; /* 打印时显示答案 */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>加减法计算题生成器</h1>
+  <label for="range">计算范围（0 到）：</label>
+  <input type="number" id="range" min="0" max="10" value="10">
+  <label for="questionCount">题目数量：</label>
+  <input type="number" id="questionCount" min="1" value="10">
+  <button onclick="generateQuestions()">生成题目</button>
+  <div id="questions"></div>
+  <button id="print-button" onclick="printPage()" disabled>打印当前页</button>
+  <button id="submit-button" onclick="gradeAndShow()" disabled>交卷</button>
+
+  <script>
+    function generateQuestions() {
+      var questionsDiv = document.getElementById('questions');
+      questionsDiv.innerHTML = ''; // 清空之前生成的题目
+
+      var totalQuestions = parseInt(document.getElementById('questionCount').value); // 获取题目数量
+      var questionsPerPage = 10; // 每页显示的题目数量
+      var totalPages = Math.ceil(totalQuestions / questionsPerPage);
+      var range = parseInt(document.getElementById('range').value) + 1; // 获取计算范围
+
+      var questionCount = 1; // 记录题目数量，初始化为1
+
+      for (var page = 0; page < totalPages; page++) {
+        var pageDiv = document.createElement('div');
+        pageDiv.classList.add('page');
+
+        for (var i = 0; i < questionsPerPage; i++) {
+          var num1 = Math.floor(Math.random() * range); // 根据范围生成随机数
+          var num2 = Math.floor(Math.random() * num1); // 保证不会超出第一个数
+          var operator = Math.random() < 0.5 ? '+' : '-'; // 随机选择加法或减法
+
+          var question = '(' + questionCount + ') ' + num1 + ' ' + operator + ' ' + num2 + ' = ';
+          var questionElement = document.createElement('p');
+          questionElement.textContent = question;
+          questionElement.classList.add('question');
+
+          var correctAnswer = operator === '+' ? (num1 + num2) : (num1 - num2);
+          var answer = document.createElement('span');
+          answer.textContent = correctAnswer;
+          answer.classList.add('answer');
+
+          var userAnswer = document.createElement('input');
+          userAnswer.setAttribute('type', 'text');
+          userAnswer.classList.add('user-answer');
+          userAnswer.style.width = '40px'; // 设置输入框宽度
+
+          questionElement.appendChild(userAnswer);
+          questionElement.appendChild(answer); // 添加正确答案显示
+          questionElement.appendChild(document.createElement('br')); // 换行
+          pageDiv.appendChild(questionElement);
+
+          questionCount++; // 每生成一个题目，题目数量增加1
+          if (questionCount > totalQuestions) break; // 如果生成的题目数量达到设定的总数，停止生成
+        }
+
+        questionsDiv.appendChild(pageDiv);
+      }
+
+      document.getElementById('submit-button').disabled = false; // 生成题目后启用“交卷”按钮
+      document.getElementById('print-button').disabled = false; // 启用打印按钮
+    }
+
+    function gradeAndShow() {
+      var answers = document.querySelectorAll('.answer');
+      var userAnswers = document.querySelectorAll('.user-answer');
+      var answeredAll = true;
+
+      for (var i = 0; i < userAnswers.length; i++) {
+        if (userAnswers[i].value === '') {
+          answeredAll = false;
+          break;
+        }
+      }
+
+      if (!answeredAll) {
+        var confirmSubmit = confirm('您还没有完成所有题目。确定要交卷吗？');
+        if (confirmSubmit) {
+          showAnswers(answers, userAnswers);
+          disableInputs(); // 交卷后禁用所有输入框
+          document.getElementById('print-button').disabled = false; // 交卷后启用打印按钮
+        }
+      } else {
+        showAnswers(answers, userAnswers);
+        disableInputs(); // 交卷后禁用所有输入框
+        document.getElementById('print-button').disabled = false; // 交卷后启用打印按钮
+      }
+      document.getElementById('submit-button').disabled = true; // 交卷后禁用“交卷”按钮
+    }
+
+    function showAnswers(answers, userAnswers) {
+      for (var i = 0; i < answers.length; i++) {
+        answers[i].style.display = 'inline';
+        if (!answers[i].textContent.startsWith('答案:')) {
+          answers[i].textContent = '答案: ' + answers[i].textContent;
+        }
+        if (userAnswers[i].value === answers[i].textContent.split(': ')[1]) {
+          userAnswers[i].classList.add('correct');
+          userAnswers[i].classList.remove('incorrect');
+          answers[i].textContent += ' (正确)';
+        } else {
+          userAnswers[i].classList.add('incorrect');
+          userAnswers[i].classList.remove('correct');
+          answers[i].textContent += ' (错误)';
+        }
+      }
+    }
+
+    function disableInputs() {
+      var userAnswers = document.querySelectorAll('.user-answer');
+      for (var i = 0; i < userAnswers.length; i++) {
+        userAnswers[i].readOnly = true; // 交卷后禁用输入框
+      }
+    }
+
+    function printPage() {
+      window.print(); // 打印当前页面
+    }
+  </script>
+</body>
+</html>
