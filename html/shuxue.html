@@ -13,8 +13,7 @@
       margin-bottom: 20px;
     }
     .question {
-      display: inline-block;
-      width: 45%; /* 控制每行显示的题目数量 */
+      width: 100%; /* 在手机上充满整个宽度 */
       margin-bottom: 10px;
     }
     .answer {
@@ -22,7 +21,6 @@
     }
     .page {
       margin-bottom: 40px;
-      page-break-inside: avoid;
     }
     .correct {
       color: green;
@@ -30,20 +28,15 @@
     .incorrect {
       color: red;
     }
-    @page {
-      size: A4;
-      margin: 2cm;
-    }
     @media print {
       body {
         margin: 0;
         padding: 0;
       }
-      .question {
-        page-break-inside: avoid; /* 避免题目被分页 */
-      }
-      .answer {
-        display: block; /* 打印时显示答案 */
+    }
+    @media screen and (max-width: 600px) {
+      .user-answer {
+        width: 40px; /* 在手机上，输入框宽度更小 */
       }
     }
   </style>
@@ -56,7 +49,6 @@
   <input type="number" id="questionCount" min="1" value="10">
   <button onclick="generateQuestions()">生成题目</button>
   <div id="questions"></div>
-  <button id="print-button" onclick="printPage()" disabled>打印当前页</button>
   <button id="submit-button" onclick="gradeAndShow()" disabled>交卷</button>
 
   <script>
@@ -93,7 +85,7 @@
           var userAnswer = document.createElement('input');
           userAnswer.setAttribute('type', 'text');
           userAnswer.classList.add('user-answer');
-          userAnswer.style.width = '40px'; // 设置输入框宽度
+          userAnswer.style.width = '60px'; // 设置输入框宽度
 
           questionElement.appendChild(userAnswer);
           questionElement.appendChild(answer); // 添加正确答案显示
@@ -108,7 +100,6 @@
       }
 
       document.getElementById('submit-button').disabled = false; // 生成题目后启用“交卷”按钮
-      document.getElementById('print-button').disabled = false; // 启用打印按钮
     }
 
     function gradeAndShow() {
@@ -128,12 +119,10 @@
         if (confirmSubmit) {
           showAnswers(answers, userAnswers);
           disableInputs(); // 交卷后禁用所有输入框
-          document.getElementById('print-button').disabled = false; // 交卷后启用打印按钮
         }
       } else {
         showAnswers(answers, userAnswers);
         disableInputs(); // 交卷后禁用所有输入框
-        document.getElementById('print-button').disabled = false; // 交卷后启用打印按钮
       }
       document.getElementById('submit-button').disabled = true; // 交卷后禁用“交卷”按钮
     }
@@ -161,10 +150,6 @@
       for (var i = 0; i < userAnswers.length; i++) {
         userAnswers[i].readOnly = true; // 交卷后禁用输入框
       }
-    }
-
-    function printPage() {
-      window.print(); // 打印当前页面
     }
   </script>
 </body>
