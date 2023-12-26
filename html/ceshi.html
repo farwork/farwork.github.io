@@ -29,6 +29,7 @@
   <input type="number" id="questionCount" min="1" value="10">
   <label for="numOfValues">数值数量：</label>
   <input type="number" id="numOfValues" min="2" value="3">
+  <br/>
   <label>运算符：</label>
   <label><input type="checkbox" name="operator" value="+">加法</label>
   <label><input type="checkbox" name="operator" value="-">减法</label>
@@ -48,14 +49,14 @@
       var numOfValues = parseInt(document.getElementById('numOfValues').value);
       var checkedOperators = Array.from(document.querySelectorAll('input[name="operator"]:checked')).map(checkbox => checkbox.value);
 
-      var questionCount = 1;
+      var generatedQuestions = 0;
 
-      for (var i = 0; i < totalQuestions; i++) {
+      while (generatedQuestions < totalQuestions) {
         var expression = generateExpression(range, numOfValues, checkedOperators);
         var answer = eval(expression);
 
         var questionElement = document.createElement('p');
-        questionElement.textContent = '(' + questionCount + ') ' + expression + ' = ';
+        questionElement.textContent = (generatedQuestions + 1) + '. ' + expression + ' = ';
         questionElement.classList.add('question');
 
         var answerElement = document.createElement('span');
@@ -75,7 +76,7 @@
         questionElement.appendChild(document.createElement('br'));
         questionsDiv.appendChild(questionElement);
 
-        questionCount++;
+        generatedQuestions++;
       }
 
       document.getElementById('submit-button').disabled = false;
@@ -84,25 +85,28 @@
     function generateExpression(range, numOfValues, operators) {
       var expression = '';
       var numStack = [];
+      var shouldAddParentheses = false;
 
       for (var i = 0; i < numOfValues; i++) {
-        numStack.push(Math.floor(Math.random() * range));
+        var num = Math.floor(Math.random() * range);
+        if (operators.includes('/') && i !== 0 && num === 0) {
+          num = 1; // 确保除数不为0
+        }
+        numStack.push(num);
         expression += numStack[numStack.length - 1];
 
         if (i !== numOfValues - 1) {
           var operator = operators[Math.floor(Math.random() * operators.length)];
           expression += operator;
 
-          if (i !== numOfValues - 2 && Math.random() < 0.3) {
-            expression = '(' + expression;
-            numStack = ['('];
+          if (operator === '+' || operator === '-') {
+            shouldAddParentheses = true;
           }
         }
       }
 
-      while (numStack.length > 1) {
-        expression += ')';
-        numStack.pop();
+      if (shouldAddParentheses) {
+        expression = '(' + expression + ')';
       }
 
       return expression;
