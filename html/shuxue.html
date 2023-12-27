@@ -2,155 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>加减法计算题生成器</title>
+  <title>计算题生成器</title>
   <style>
-    /* 添加一些基本的样式 */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    #questions {
-      margin-bottom: 20px;
-    }
-    .question {
-      width: 100%; /* 在手机上充满整个宽度 */
-      margin-bottom: 10px;
-    }
-    .answer {
-      display: none; /* 默认隐藏答案 */
-    }
-    .page {
-      margin-bottom: 40px;
-    }
+    /* 样式可以在这里添加 */
     .correct {
       color: green;
     }
     .incorrect {
       color: red;
     }
-    @media print {
-      body {
-        margin: 0;
-        padding: 0;
-      }
-    }
-    @media screen and (max-width: 600px) {
-      .user-answer {
-        width: 40px; /* 在手机上，输入框宽度更小 */
-      }
-    }
   </style>
 </head>
 <body>
-  <h1>加减法计算题生成器</h1>
-  <label for="range">计算范围（0 到）：</label>
-  <input type="number" id="range" min="0" max="10" value="10">
-  <label for="questionCount">题目数量：</label>
-  <input type="number" id="questionCount" min="1" value="10">
-  <button onclick="generateQuestions()">生成题目</button>
+  <h1>计算题生成器</h1>
+  <label for="minRange">最小范围：</label>
+  <input type="number" id="minRange" value="1">
+  <br>
+  <label for="maxRange">最大范围：</label>
+  <input type="number" id="maxRange" value="10">
+  <br>
+  <label for="numOfValues">数值数量：</label>
+  <input type="number" id="numOfValues" value="2">
+  <br>
+  <label for="numOfQuestions">每次出题数量：</label>
+  <input type="number" id="numOfQuestions" value="5">
+  <br>
+  <input type="checkbox" id="addition" name="ysf" onclick="checkysf()">
+  <label for="addition">加法</label>
+  <input type="checkbox" id="subtraction" name="ysf" onclick="checkysf()">
+  <label for="subtraction">减法</label>
+  <input type="checkbox" id="multiplication" name="ysf" onclick="checkysf()">
+  <label for="multiplication">乘法</label>
+  <input type="checkbox" id="division" name="ysf" onclick="checkysf()">
+  <label for="division">除法</label>
+  <br>
+  <button id="creat" disabled onclick="generateQuestions()">生成题目</button>
   <div id="questions"></div>
-  <button id="submit-button" onclick="gradeAndShow()" disabled>交卷</button>
+  <button id = "answerbutton" disabled onclick="checkAnswers()">提交答案</button>
 
   <script>
     function generateQuestions() {
+      // 获取输入的值
+      var minRange = parseInt(document.getElementById('minRange').value);
+      var maxRange = parseInt(document.getElementById('maxRange').value);
+      var numOfValues = parseInt(document.getElementById('numOfValues').value);
+      var numOfQuestions = parseInt(document.getElementById('numOfQuestions').value);
+      var includeAddition = document.getElementById('addition').checked;
+      var includeSubtraction = document.getElementById('subtraction').checked;
+      var includeMultiplication = document.getElementById('multiplication').checked;
+      var includeDivision = document.getElementById('division').checked;
+
       var questionsDiv = document.getElementById('questions');
-      questionsDiv.innerHTML = ''; // 清空之前生成的题目
+      questionsDiv.innerHTML = ''; // 清空之前的题目
 
-      var totalQuestions = parseInt(document.getElementById('questionCount').value); // 获取题目数量
-      var questionsPerPage = 10; // 每页显示的题目数量
-      var totalPages = Math.ceil(totalQuestions / questionsPerPage);
-      var range = parseInt(document.getElementById('range').value) + 1; // 获取计算范围
+      // 生成题目
+      for (var i = 0; i < numOfQuestions; i++) {
+        var question = generateQuestion(minRange, maxRange, numOfValues, includeAddition, includeSubtraction, includeMultiplication, includeDivision);
+        var questionParagraph = document.createElement('p');
+        questionParagraph.textContent = question;
 
-      var questionCount = 1; // 记录题目数量，初始化为1
+        // 创建输入框
+        var answerInput = document.createElement('input');
+        answerInput.type = 'number';
+        answerInput.placeholder = '输入答案';
+        questionParagraph.appendChild(document.createTextNode(' = '));
+        questionParagraph.appendChild(answerInput);
+        answerInput.style.width = '80px';
 
-      for (var page = 0; page < totalPages; page++) {
-        var pageDiv = document.createElement('div');
-        pageDiv.classList.add('page');
-
-        for (var i = 0; i < questionsPerPage; i++) {
-          var num1 = Math.floor(Math.random() * range); // 根据范围生成随机数
-          var num2 = Math.floor(Math.random() * num1); // 保证不会超出第一个数
-          var operator = Math.random() < 0.5 ? '+' : '-'; // 随机选择加法或减法
-
-          var question = '(' + questionCount + ') ' + num1 + ' ' + operator + ' ' + num2 + ' = ';
-          var questionElement = document.createElement('p');
-          questionElement.textContent = question;
-          questionElement.classList.add('question');
-
-          var correctAnswer = operator === '+' ? (num1 + num2) : (num1 - num2);
-          var answer = document.createElement('span');
-          answer.textContent = correctAnswer;
-          answer.classList.add('answer');
-
-          var userAnswer = document.createElement('input');
-          userAnswer.setAttribute('type', 'text');
-          userAnswer.classList.add('user-answer');
-          userAnswer.style.width = '60px'; // 设置输入框宽度
-
-          questionElement.appendChild(userAnswer);
-          questionElement.appendChild(answer); // 添加正确答案显示
-          questionElement.appendChild(document.createElement('br')); // 换行
-          pageDiv.appendChild(questionElement);
-
-          questionCount++; // 每生成一个题目，题目数量增加1
-          if (questionCount > totalQuestions) break; // 如果生成的题目数量达到设定的总数，停止生成
-        }
-
-        questionsDiv.appendChild(pageDiv);
+        questionsDiv.appendChild(questionParagraph);
       }
-
-      document.getElementById('submit-button').disabled = false; // 生成题目后启用“交卷”按钮
+      answerbutton.disabled = false;
     }
 
-    function gradeAndShow() {
-      var answers = document.querySelectorAll('.answer');
-      var userAnswers = document.querySelectorAll('.user-answer');
-      var answeredAll = true;
+    function checkAnswers() {
+      var inputs = document.querySelectorAll('#questions input[type="number"]');
+      var allAnswered = true;
 
-      for (var i = 0; i < userAnswers.length; i++) {
-        if (userAnswers[i].value === '') {
-          answeredAll = false;
-          break;
+      // 检查是否所有的答案都已填写
+      inputs.forEach(function(input) {
+        if (!input.value) {
+          allAnswered = false;
+          return;
+        }
+      });
+
+      // 提示用户有未填写的答案
+      if (!allAnswered) {
+        var confirmSubmit = confirm('有未填写的答案，确定要提交吗？');
+        if (!confirmSubmit) {
+          return;
         }
       }
 
-      if (!answeredAll) {
-        var confirmSubmit = confirm('您还没有完成所有题目。确定要交卷吗？');
-        if (confirmSubmit) {
-          showAnswers(answers, userAnswers);
-          disableInputs(); // 交卷后禁用所有输入框
-        }
-      } else {
-        showAnswers(answers, userAnswers);
-        disableInputs(); // 交卷后禁用所有输入框
-      }
-      document.getElementById('submit-button').disabled = true; // 交卷后禁用“交卷”按钮
+      var submitButton = document.querySelector('button[onclick="checkAnswers()"]');
+      submitButton.disabled = true;
+
+      
+
+    inputs.forEach(function(input) {
+        var userAnswer = input.value.trim(); // 获取用户输入的答案
+        var question = input.parentElement.textContent.split('=')[0].trim();
+        var correctAnswer = calculateAnswer(question);
+        var answerDisplay = document.createElement('span');
+
+
+  // 检查用户答案是否为整数或浮点数，最多保留两位小数
+  if (!isNaN(userAnswer) && userAnswer !== '') {
+    userAnswer = parseFloat(userAnswer); // 将用户答案转换为浮点数
+    userAnswer = userAnswer.toFixed(3); // 保留两位小数
+    userAnswer = userAnswer % 1 === 0 ? parseInt(userAnswer) : parseFloat(userAnswer); // 转换为整数或浮点数
+    
+  }
+    correctAnswer = parseFloat(correctAnswer); // 将用户答案转换为浮点数
+    correctAnswer = correctAnswer.toFixed(3); // 保留两位小数
+    correctAnswer = correctAnswer % 1 === 0 ? parseInt(correctAnswer) : parseFloat(correctAnswer); // 转换为整数或浮点数
+    answerDisplay.textContent = ' (答案: ' + correctAnswer + ')';
+  if (userAnswer === correctAnswer) {
+    answerDisplay.classList.add('correct');
+    answerDisplay.textContent += ' - 正确✅';
+  } else {
+    answerDisplay.classList.add('incorrect');
+    answerDisplay.textContent += ' - 错误❎';
+  }
+
+  input.parentElement.appendChild(answerDisplay);
+  
+});
+    
     }
 
-    function showAnswers(answers, userAnswers) {
-      for (var i = 0; i < answers.length; i++) {
-        answers[i].style.display = 'inline';
-        if (!answers[i].textContent.startsWith('答案:')) {
-          answers[i].textContent = '答案: ' + answers[i].textContent;
+    function generateQuestion(min, max, values, add, sub, mult, div) {
+      var operators = [];
+      if (add) operators.push('+');
+      if (sub) operators.push('-');
+      if (mult) operators.push('*');
+      if (div) operators.push('/');
+
+      var question = '';
+      for (var i = 0; i < values; i++) {
+        if (i > 0) {
+          var operator = operators[Math.floor(Math.random() * operators.length)];
+          question += ' ' + operator + ' ';
         }
-        if (userAnswers[i].value === answers[i].textContent.split(': ')[1]) {
-          userAnswers[i].classList.add('correct');
-          userAnswers[i].classList.remove('incorrect');
-          answers[i].textContent += ' (正确)';
+        question += Math.floor(Math.random() * (max - min + 1) + min);
+      }
+      return question;
+    }
+
+    function calculateAnswer(question) {
+      return eval(question);
+    }
+
+    function checkysf(){
+        var checkBoxes = document.getElementsByName("ysf");
+        var button = document.getElementById("creat");
+        var checkedCount = 0;
+        for (var i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].checked == true) {
+                checkedCount++;
+            }
+        }
+        if (checkedCount == 0) {
+            button.disabled = true;
         } else {
-          userAnswers[i].classList.add('incorrect');
-          userAnswers[i].classList.remove('correct');
-          answers[i].textContent += ' (错误)';
-        }
-      }
+            button.disabled = false;
+            }
     }
 
-    function disableInputs() {
-      var userAnswers = document.querySelectorAll('.user-answer');
-      for (var i = 0; i < userAnswers.length; i++) {
-        userAnswers[i].readOnly = true; // 交卷后禁用输入框
-      }
-    }
+
   </script>
 </body>
 </html>
