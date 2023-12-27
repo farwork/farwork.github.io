@@ -11,6 +11,9 @@
     .incorrect {
       color: red;
     }
+    .hidden-label {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -33,8 +36,9 @@
   <label for="subtraction">减法</label>
   <input type="checkbox" id="multiplication" name="ysf" onclick="checkysf()">
   <label for="multiplication">乘法</label>
-  <input type="checkbox" id="division" name="ysf" onclick="checkysf()">
+  <input type="checkbox" id="division" name="ysf" onclick="checkysf();seebaoliu()">
   <label for="division">除法</label>
+  <label id="baoliu" class="hidden-label">保留三位小数</label>
   <br>
   <button id="creat" disabled onclick="generateQuestions()">生成题目</button>
   <div id="questions"></div>
@@ -169,6 +173,15 @@
             }
     }
 
+    function seebaoliu(){
+        var label1 =  document.getElementById("baoliu");
+        var checkbox4 =document.getElementById("division");
+        if (checkbox4.checked == true) {
+            label1.classList.remove('hidden-label')
+        }else{
+            label1.classList.add('hidden-label')
+        }
+    }
 
   </script>
 </body>
