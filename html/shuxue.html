@@ -189,24 +189,24 @@
                 question = randomNum+question;
 
               }
-              console.log("式子："+question);
+              // console.log("式子："+question);
               if(zjkh && i>0 && i!== values-1){
                 var khxxs =[0,1];
                 var khxx = khxxs[Math.floor(Math.random() * khxxs.length)];
-                  console.log("khxx的第二次值:"+khxx);
+                  // console.log("khxx的第二次值:"+khxx);
                   if(khxx==0){
                     question='(' + question + ')';
                     
-                    console.log("加括号："+question);
+                    // console.log("加括号："+question);
                   }else{
                     
-                    console.log("不满足条件："+question);
+                    // console.log("不满足条件："+question);
                   }
 
                 }
             }else{
               question += randomNum;
-              console.log(question);
+              // console.log(question);
 
             }
           }
@@ -226,7 +226,7 @@
               var op = operators[Math.floor(Math.random() * operators.length)];
               var khhzs =[0,1];
               var khhz = khhzs[Math.floor(Math.random() * khhzs.length)];  
-              console.log("khhz的第一次值："+khhz);
+              // console.log("khhz的第一次值："+khhz);
               if(khhz==0){
                 question += ' ' + op + ' ';
                 question += randomNum;
@@ -240,14 +240,14 @@
               if(zjkh && i>0 && i!== values-1){
                 var khxxs =[0,1];
                 var khxx = khxxs[Math.floor(Math.random() * khxxs.length)]; 
-                  console.log("khxx的第二次值:"+khxx);
+                  // console.log("khxx的第二次值:"+khxx);
                   if(khxx==0){
                     question='(' + question + ')';
                     
-                    console.log("加括号："+question);
+                    // console.log("加括号："+question);
                   }else{
                     
-                    console.log("不满足条件："+question);
+                    // console.log("不满足条件："+question);
                   }
 
                 }
