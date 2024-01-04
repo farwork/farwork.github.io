@@ -69,7 +69,7 @@
         var question = generateQuestion(minRange,maxRange,numOfValues, includeAddition, includeSubtraction, includeMultiplication, includeDivision);
         var questionParagraph = document.createElement('p');
         
-        questionParagraph.textContent = question;
+        questionParagraph.textContent = replaceDivisionSymbol(question);
 
         // 创建输入框
         var answerInput = document.createElement('input');
@@ -80,6 +80,7 @@
         answerInput.style.width = '80px';
 
         questionsDiv.appendChild(questionParagraph);
+        
       }
       answerbutton.disabled = false;
     }
@@ -109,9 +110,10 @@
 
       
 
-    inputs.forEach(function(input) {
+      inputs.forEach(function(input) {
         var userAnswer = input.value.trim(); // 获取用户输入的答案
         var question = input.parentElement.textContent.split('=')[0].trim();
+        question = replaceDivisionSymbolBack(question);
         var correctAnswer = calculateAnswer(question);
         var answerDisplay = document.createElement('span');
 
@@ -124,7 +126,7 @@
         
         }
         correctAnswer = parseFloat(correctAnswer); // 将用户答案转换为浮点数
-        correctAnswer = correctAnswer.toFixed(3); // 保留两位小数
+        correctAnswer = correctAnswer.toFixed(3); // 保留三位小数
         correctAnswer = correctAnswer % 1 === 0 ? parseInt(correctAnswer) : parseFloat(correctAnswer); // 转换为整数或浮点数
         answerDisplay.textContent = ' (答案: ' + correctAnswer + ')';
         if (userAnswer === correctAnswer) {
@@ -137,9 +139,9 @@
 
         input.parentElement.appendChild(answerDisplay);
       
-    });
+      });
     
-  }
+    } 
 
     function generateQuestion(min, max, values, add, sub, mult, div) {
       var operators = [];
@@ -174,34 +176,34 @@
             // var op = operators[Math.floor(Math.random() * operators.length)];
             // question += ' ' + op + ' ';
 
-            var op = operators[Math.floor(Math.random() * operators.length)];
-            var khhzs =[0,1];
-            var khhz = khhzs[Math.floor(Math.random() * khhzs.length)];  
-            console.log("khhz的第一次值："+khhz);
-            if(khhz==0){
-              question += ' ' + op + ' ';
-              question += randomNum;
-              
-            }else{  
-              question = ' ' + op + ' '+question;
-              question = randomNum+question;
-
-            }
-            console.log("式子："+question);
-            if(zjkh && i>0 && i!== values-1){
-              var khxxs =[0,1];
-              var khxx = khxxs[Math.floor(Math.random() * khxxs.length)];
-                console.log("khxx的第二次值:"+khxx);
-                if(khxx==0){
-                  question='(' + question + ')';
-                  
-                  console.log("加括号："+question);
-                }else{
-                  
-                  console.log("不满足条件："+question);
-                }
+              var op = operators[Math.floor(Math.random() * operators.length)];
+              var khhzs =[0,1];
+              var khhz = khhzs[Math.floor(Math.random() * khhzs.length)];  
+              console.log("khhz的第一次值："+khhz);
+              if(khhz==0){
+                question += ' ' + op + ' ';
+                question += randomNum;
+                
+              }else{  
+                question = ' ' + op + ' '+question;
+                question = randomNum+question;
 
               }
+              console.log("式子："+question);
+              if(zjkh && i>0 && i!== values-1){
+                var khxxs =[0,1];
+                var khxx = khxxs[Math.floor(Math.random() * khxxs.length)];
+                  console.log("khxx的第二次值:"+khxx);
+                  if(khxx==0){
+                    question='(' + question + ')';
+                    
+                    console.log("加括号："+question);
+                  }else{
+                    
+                    console.log("不满足条件："+question);
+                  }
+
+                }
             }else{
               question += randomNum;
               console.log(question);
@@ -221,34 +223,34 @@
             var randomNum = nums[Math.floor(Math.random() * nums.length)];
 
             if (i > 0) {
-            var op = operators[Math.floor(Math.random() * operators.length)];
-            var khhzs =[0,1];
-            var khhz = khhzs[Math.floor(Math.random() * khhzs.length)];  
-            console.log("khhz的第一次值："+khhz);
-            if(khhz==0){
-              question += ' ' + op + ' ';
-              question += randomNum;
-              
-            }else{  
-              question = ' ' + op + ' '+question;
-              question = randomNum+question;
-
-            }
-            console.log("式子："+question);
-            if(zjkh && i>0 && i!== values-1){
-              var khxxs =[0,1];
-              var khxx = khxxs[Math.floor(Math.random() * khxxs.length)]; 
-                console.log("khxx的第二次值:"+khxx);
-                if(khxx==0){
-                  question='(' + question + ')';
-                  
-                  console.log("加括号："+question);
-                }else{
-                  
-                  console.log("不满足条件："+question);
-                }
+              var op = operators[Math.floor(Math.random() * operators.length)];
+              var khhzs =[0,1];
+              var khhz = khhzs[Math.floor(Math.random() * khhzs.length)];  
+              console.log("khhz的第一次值："+khhz);
+              if(khhz==0){
+                question += ' ' + op + ' ';
+                question += randomNum;
+                
+              }else{  
+                question = ' ' + op + ' '+question;
+                question = randomNum+question;
 
               }
+              console.log("式子："+question);
+              if(zjkh && i>0 && i!== values-1){
+                var khxxs =[0,1];
+                var khxx = khxxs[Math.floor(Math.random() * khxxs.length)]; 
+                  console.log("khxx的第二次值:"+khxx);
+                  if(khxx==0){
+                    question='(' + question + ')';
+                    
+                    console.log("加括号："+question);
+                  }else{
+                    
+                    console.log("不满足条件："+question);
+                  }
+
+                }
             }else{
               // var randomNum = nums[Math.floor(Math.random() * nums.length)];
               question += randomNum;
@@ -339,7 +341,15 @@
           document.getElementById('maxRange').value = input.value;
         }
     }
+
+    function replaceDivisionSymbol(expression) {
+      return expression.replace(/\//g, '÷');
+    }
     
+    function replaceDivisionSymbolBack(expression) {
+      return expression.replace(/÷/g, '/');
+    }
+
   </script>
 </body>
 </html>
