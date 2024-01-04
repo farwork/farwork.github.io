@@ -69,7 +69,7 @@
         var question = generateQuestion(minRange,maxRange,numOfValues, includeAddition, includeSubtraction, includeMultiplication, includeDivision);
         var questionParagraph = document.createElement('p');
         
-        questionParagraph.textContent = replaceDivisionSymbol(question);
+        questionParagraph.textContent = replaceSymbols(question);
 
         // 创建输入框
         var answerInput = document.createElement('input');
@@ -113,7 +113,7 @@
       inputs.forEach(function(input) {
         var userAnswer = input.value.trim(); // 获取用户输入的答案
         var question = input.parentElement.textContent.split('=')[0].trim();
-        question = replaceDivisionSymbolBack(question);
+        question = replaceSymbolsback(question);
         var correctAnswer = calculateAnswer(question);
         var answerDisplay = document.createElement('span');
 
@@ -342,13 +342,13 @@
         }
     }
 
-    function replaceDivisionSymbol(expression) {
-      return expression.replace(/\//g, '÷');
+    function replaceSymbols(expression) {
+      return expression.replace(/\*/g, '×').replace(/\//g, '÷');
     }
-    
-    function replaceDivisionSymbolBack(expression) {
-      return expression.replace(/÷/g, '/');
+    function replaceSymbolsback(expression) {
+      return expression.replace(/\×/g, '*').replace(/\÷/g, '/');
     }
+
 
   </script>
 </body>
