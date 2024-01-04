@@ -31,6 +31,8 @@
   <br>
   <label for="numOfQuestions">出题数量：</label>
   <input type="number" id="numOfQuestions" value="5" oninput="checkMaxValue1(this)">
+  <input type="checkbox" id="tjkh">
+  <label for="tjkh">添加括号</label>
   <br>
   <input type="checkbox" id="addition" name="ysf" onclick="checkysf()">
   <label for="addition">加法</label>
@@ -158,21 +160,53 @@
       var question = '';
      
       var fwxz = document.getElementById('jgfw').checked;
-                
+      var zjkh = document.getElementById('tjkh').checked;
+       
+             
       if (fwxz) {
         var withinRange = false;
         
-
         while (!withinRange) {
           question = ''; // 重新生成 question
           for (var i = 0; i < values; i++) {
+            var randomNum = nums[Math.floor(Math.random() * nums.length)];
             if (i > 0) {
+            // var op = operators[Math.floor(Math.random() * operators.length)];
+            // question += ' ' + op + ' ';
+
             var op = operators[Math.floor(Math.random() * operators.length)];
-            question += ' ' + op + ' ';
+            var khhzs =[0,1];
+            var khhz = khhzs[Math.floor(Math.random() * khhzs.length)];  
+            console.log("khhz的第一次值："+khhz);
+            if(khhz==0){
+              question += ' ' + op + ' ';
+              question += randomNum;
+              
+            }else{  
+              question = ' ' + op + ' '+question;
+              question = randomNum+question;
+
             }
-          var randomNum = nums[Math.floor(Math.random() * nums.length)];
-          question += randomNum;
-          console.log(question);
+            console.log("式子："+question);
+            if(zjkh && i>0 && i!== values-1){
+              var khxxs =[0,1];
+              var khxx = khxxs[Math.floor(Math.random() * khxxs.length)];
+                console.log("khxx的第二次值:"+khxx);
+                if(khxx==0){
+                  question='(' + question + ')';
+                  
+                  console.log("加括号："+question);
+                }else{
+                  
+                  console.log("不满足条件："+question);
+                }
+
+              }
+            }else{
+              question += randomNum;
+              console.log(question);
+
+            }
           }
       
         var result = calculateAnswer(question);
@@ -183,14 +217,45 @@
           }
         }
       } else {
-          for (var i = 0; i < values; i++) {
+        for (var i = 0; i < values; i++) {
+            var randomNum = nums[Math.floor(Math.random() * nums.length)];
+
             if (i > 0) {
             var op = operators[Math.floor(Math.random() * operators.length)];
-            question += ' ' + op + ' ';
+            var khhzs =[0,1];
+            var khhz = khhzs[Math.floor(Math.random() * khhzs.length)];  
+            console.log("khhz的第一次值："+khhz);
+            if(khhz==0){
+              question += ' ' + op + ' ';
+              question += randomNum;
+              
+            }else{  
+              question = ' ' + op + ' '+question;
+              question = randomNum+question;
+
             }
-          var randomNum = nums[Math.floor(Math.random() * nums.length)];
-          question += randomNum;
-          console.log(question);
+            console.log("式子："+question);
+            if(zjkh && i>0 && i!== values-1){
+              var khxxs =[0,1];
+              var khxx = khxxs[Math.floor(Math.random() * khxxs.length)]; 
+                console.log("khxx的第二次值:"+khxx);
+                if(khxx==0){
+                  question='(' + question + ')';
+                  
+                  console.log("加括号："+question);
+                }else{
+                  
+                  console.log("不满足条件："+question);
+                }
+
+              }
+            }else{
+              // var randomNum = nums[Math.floor(Math.random() * nums.length)];
+              question += randomNum;
+              console.log("i=0时候:"+question);
+
+            }
+              
           }
         }
 
