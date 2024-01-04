@@ -22,13 +22,15 @@
   <input type="number" id="minRange" value="1">
   <br>
   <label for="maxRange">最大范围：</label>
-  <input type="number" id="maxRange" value="10">
+  <input type="number" id="maxRange" value="10" oninput="checkMaxValue2(this)">
+  <input type="checkbox" id="jgfw">
+  <label for="jgfw">结果在此范围内</label>
   <br>
   <label for="numOfValues">数值数量：</label>
-  <input type="number" id="numOfValues" value="2">
+  <input type="number" id="numOfValues" value="2" oninput="checkMaxValue(this)">
   <br>
-  <label for="numOfQuestions">每次出题数量：</label>
-  <input type="number" id="numOfQuestions" value="5">
+  <label for="numOfQuestions">出题数量：</label>
+  <input type="number" id="numOfQuestions" value="5" oninput="checkMaxValue1(this)">
   <br>
   <input type="checkbox" id="addition" name="ysf" onclick="checkysf()">
   <label for="addition">加法</label>
@@ -45,6 +47,7 @@
   <button id = "answerbutton" disabled onclick="checkAnswers()">提交答案</button>
 
   <script>
+    
     function generateQuestions() {
       // 获取输入的值
       var minRange = parseInt(document.getElementById('minRange').value);
@@ -55,14 +58,15 @@
       var includeSubtraction = document.getElementById('subtraction').checked;
       var includeMultiplication = document.getElementById('multiplication').checked;
       var includeDivision = document.getElementById('division').checked;
-
+      
       var questionsDiv = document.getElementById('questions');
       questionsDiv.innerHTML = ''; // 清空之前的题目
 
       // 生成题目
       for (var i = 0; i < numOfQuestions; i++) {
-        var question = generateQuestion(minRange, maxRange, numOfValues, includeAddition, includeSubtraction, includeMultiplication, includeDivision);
+        var question = generateQuestion(minRange,maxRange,numOfValues, includeAddition, includeSubtraction, includeMultiplication, includeDivision);
         var questionParagraph = document.createElement('p');
+        
         questionParagraph.textContent = question;
 
         // 创建输入框
@@ -111,47 +115,96 @@
 
 
   // 检查用户答案是否为整数或浮点数，最多保留两位小数
-  if (!isNaN(userAnswer) && userAnswer !== '') {
-    userAnswer = parseFloat(userAnswer); // 将用户答案转换为浮点数
-    userAnswer = userAnswer.toFixed(3); // 保留两位小数
-    userAnswer = userAnswer % 1 === 0 ? parseInt(userAnswer) : parseFloat(userAnswer); // 转换为整数或浮点数
-    
-  }
-    correctAnswer = parseFloat(correctAnswer); // 将用户答案转换为浮点数
-    correctAnswer = correctAnswer.toFixed(3); // 保留两位小数
-    correctAnswer = correctAnswer % 1 === 0 ? parseInt(correctAnswer) : parseFloat(correctAnswer); // 转换为整数或浮点数
-    answerDisplay.textContent = ' (答案: ' + correctAnswer + ')';
-  if (userAnswer === correctAnswer) {
-    answerDisplay.classList.add('correct');
-    answerDisplay.textContent += ' - 正确✅';
-  } else {
-    answerDisplay.classList.add('incorrect');
-    answerDisplay.textContent += ' - 错误❎';
-  }
+        if (!isNaN(userAnswer) && userAnswer !== '') {
+          userAnswer = parseFloat(userAnswer); // 将用户答案转换为浮点数
+          userAnswer = userAnswer.toFixed(3); // 保留两位小数
+          userAnswer = userAnswer % 1 === 0 ? parseInt(userAnswer) : parseFloat(userAnswer); // 转换为整数或浮点数
+        
+        }
+        correctAnswer = parseFloat(correctAnswer); // 将用户答案转换为浮点数
+        correctAnswer = correctAnswer.toFixed(3); // 保留两位小数
+        correctAnswer = correctAnswer % 1 === 0 ? parseInt(correctAnswer) : parseFloat(correctAnswer); // 转换为整数或浮点数
+        answerDisplay.textContent = ' (答案: ' + correctAnswer + ')';
+        if (userAnswer === correctAnswer) {
+          answerDisplay.classList.add('correct');
+          answerDisplay.textContent += ' - 正确✅';
+        } else {
+          answerDisplay.classList.add('incorrect');
+          answerDisplay.textContent += ' - 错误❎';
+        }
 
-  input.parentElement.appendChild(answerDisplay);
-  
-});
+        input.parentElement.appendChild(answerDisplay);
+      
+    });
     
-    }
+  }
 
     function generateQuestion(min, max, values, add, sub, mult, div) {
       var operators = [];
+      // console.log(add,sub,mult,div);
       if (add) operators.push('+');
       if (sub) operators.push('-');
       if (mult) operators.push('*');
       if (div) operators.push('/');
-
-      var question = '';
-      for (var i = 0; i < values; i++) {
-        if (i > 0) {
-          var operator = operators[Math.floor(Math.random() * operators.length)];
-          question += ' ' + operator + ' ';
-        }
-        question += Math.floor(Math.random() * (max - min + 1) + min);
+      
+      var nums = [];
+      for (var i = min; i <= max; i++) {
+        nums.push(i);
       }
+        // console.log(nums) ;
+        
+    
+      
+      var question = '';
+     
+      var fwxz = document.getElementById('jgfw').checked;
+                
+      if (fwxz) {
+        var withinRange = false;
+        
+
+        while (!withinRange) {
+          question = ''; // 重新生成 question
+          for (var i = 0; i < values; i++) {
+            if (i > 0) {
+            var op = operators[Math.floor(Math.random() * operators.length)];
+            question += ' ' + op + ' ';
+            }
+          var randomNum = nums[Math.floor(Math.random() * nums.length)];
+          question += randomNum;
+          console.log(question);
+          }
+      
+        var result = calculateAnswer(question);
+    
+      // 检查结果是否在 min 和 max 范围内
+          if (result >= min && result <= max) {
+            withinRange = true;
+          }
+        }
+      } else {
+          for (var i = 0; i < values; i++) {
+            if (i > 0) {
+            var op = operators[Math.floor(Math.random() * operators.length)];
+            question += ' ' + op + ' ';
+            }
+          var randomNum = nums[Math.floor(Math.random() * nums.length)];
+          question += randomNum;
+          console.log(question);
+          }
+        }
+
       return question;
+
+
+
+
+
+
     }
+
+
+    
 
     function calculateAnswer(question) {
       return eval(question);
@@ -183,6 +236,31 @@
         }
     }
 
+    function checkMaxValue(input) {
+        if (input.value > 10) {
+            input.value = 10;
+        }
+        if (input.value < 2) {
+            input.value = 2;
+        }
+    }
+    function checkMaxValue1(input) {
+        if (input.value > 100) {
+            input.value = 100;
+        }
+        if (input.value < 1) {
+            input.value = 1;
+        }
+    }
+    function checkMaxValue2(input) {
+        if (input.value > 1000) {
+            input.value = 1000;
+        }
+        if (input.value < 1) {
+            input.value = 1;
+        }
+    }
+    
   </script>
 </body>
 </html>
