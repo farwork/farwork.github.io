@@ -87,6 +87,7 @@
   </div>
   <div id="questions"></div>
   <button id="answerbutton" disabled onclick="checkAnswers()">提交答案</button>
+  <button id="printbutton" disabled onclick="printtext()">打印</button>
 
   <!-- <button id="print" disabled onclick="generateAndPrint()">打印练习</button>
   <table id="calculationArea" ></table>
@@ -132,6 +133,7 @@
         
       }
       answerbutton.disabled = false;
+      printbutton.disabled = true;
     }
 
     function checkAnswers() {
@@ -475,6 +477,12 @@
       // calculationArea.appendChild(table);
       calculationArea.appendChild(tbody);
       answerbutton.disabled = true;
+      printbutton.disabled = false;
+    }
+
+
+    function printtext(){
+      window.print();
     }
 
 
