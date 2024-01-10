@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>计算题生成器</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.min.js"></script>
   <style>
     /* 样式可以在这里添加 */
     .correct {
@@ -82,18 +83,13 @@
   <button id="creat" disabled onclick="generateQuestions()">在线练习</button>
 
   <button id="print" disabled onclick="generateAndPrint()">打印练习</button>
-  <div id="calcu" >
-  <!-- <table id="calculationArea" ></table> -->
-  </div>
+  <div id="calcu" ></div>
+  <!-- <div id="qrcode"></div> -->
   <div id="questions"></div>
   <button id="answerbutton" disabled onclick="checkAnswers()">提交答案</button>
   <button id="printbutton" disabled onclick="printtext()">打印</button>
-
-  <!-- <button id="print" disabled onclick="generateAndPrint()">打印练习</button>
-  <table id="calculationArea" ></table>
-  <div id="questions"></div>
-  <button id = "answerbutton" disabled onclick="checkAnswers()">提交答案</button> -->
-
+  <!-- <button onclick="answercode()">点击生成二维码</button> -->
+  
   <script>
     var questionsDiv = document.getElementById('questions');
     
@@ -456,6 +452,13 @@
       var cell;
       var questionParagraph;
 
+      if(numOfValues<4){
+        numOfQuestions=52;
+      }else{
+        numOfQuestions=48;
+      }
+
+
       for (var i = 0; i < numOfQuestions; i++) {
         var question = generateQuestion(minRange, maxRange, numOfValues, includeAddition, includeSubtraction, includeMultiplication, includeDivision);
         questionParagraph = document.createElement('div');
@@ -484,6 +487,21 @@
     function printtext(){
       window.print();
     }
+
+    function answercode(){
+
+      // 获取要放置二维码的 HTML 元素
+      var qrContainer = document.getElementById('qrcode');
+      
+      // 创建二维码实例
+      var qr = qrcode(0, 'M');
+      qr.addData('5+1=6、6+2=8、8+1=9、3+5=8\n5+6=11');
+      qr.make();
+  
+      // 生成 SVG 格式的二维码并添加到指定的容器中
+      qrContainer.innerHTML = qr.createSvgTag();
+    }
+    
 
 
   </script>
