@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>认识时钟</title>
+    <style>
+      /* 在这里添加其他样式 */
+      canvas {
+        margin: 15px; /* 设置间隔大小 */
+        border: 0px solid #000; /* 添加边框以突显间隔 */
+      }
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        div, canvas {
+          visibility: visible;
+        }
+        canvas {
+        /* margin-left: 40px; 设置间隔大小 */
+        /* margin-right: 80px;
+        margin-top: 20px;
+        margin-bottom: 0px; */
+        border: 0px solid #000; /* 添加边框以突显间隔 */
+        
+        }
+        div {
+          position: absolute;
+          display: block; /* 将元素作为块级元素显示 */
+          top:0;
+          margin-top: 5%;
+          margin-right: 5%;
+          /* margin-bottom: 5%; */
+          margin-left: 5%;
+        }
+        @page {
+          size: A4; /* 设置纸张尺寸，可以是 A4、Letter 等 */
+          margin: 0cm; /* 设置页边距，可以是 cm、in、mm、px 等单位 */
+  }
+
+      }
+
+
+
+    </style>
+
+  </head>
+<body>
+  <h1>认识时钟</h1>
+  <button id="show"  onclick="showclock()">认识时钟</button>
+  <button id="show"  onclick="noclock()">绘制时钟</button>
+  <input type="checkbox" id="showsecond">
+  <label for="showsecond">显示秒针(只有随机才可显示)</label>
+
+  <p>显示格式选择：</p>
+  <form>
+    <input type="radio" id="option1" name="options" value="option1">
+    <label for="option1">五分钟</label>
+  
+    <input type="radio" id="option2" name="options" value="option2">
+    <label for="option2">十分钟</label>
+  
+    <input type="radio" id="option3" name="options" value="option3">
+    <label for="option3">十五分钟</label>
+  
+    <input type="radio" id="option4" name="options" value="option4">
+    <label for="option4">半小时</label>
+  
+    <input type="radio" id="option5" name="options" value="option5" checked>
+    <label for="option5">随机</label>
+  </form>
+  
+<div id="clockContainer"></div>
+
+
+
+<script>
+  var showtimes ='';
+
+function showclock(){
+  var targetDiv = document.getElementById('clockContainer');
+  clearAndCreateElements(targetDiv);
+  for (var i=1; i<=9;i++){
+    drawClock('canvas'+i);
+  }
+  
+}
+
+function clearAndCreateElements(targetDiv) {
+  // 清除目标div内的元素
+  targetDiv.innerHTML = '';
+
+  // 创建5个新元素并指定ID
+  for (var i = 1; i <= 9; i++) {
+    var newElement = document.createElement('canvas');
+    newElement.id = 'canvas' + i;
+    newElement.width='200';
+    newElement.height='300';
+
+    newElement.textContent = '新元素' + i;
+
+    // 将新元素添加到目标div中
+    targetDiv.appendChild(newElement);
+  }
+}
+
+
+function drawClock(canvasId) {
+  var canvas;
+  
+  // 确保传递的参数是一个字符串
+  if (typeof canvasId === 'string') {
+    canvas = document.getElementById(canvasId);
+  } else {
+    console.error("Invalid canvasId: " + canvasId);
+    return;
+  }
+
+  if (!canvas) {
+    console.error("Canvas element not found with id: " + canvasId);
+    return;
+  }
+
+  var ctx = canvas.getContext("2d");
+  if (!ctx) {
+    console.error("Canvas context not supported.");
+    return;
+  }
+
+  var radius = canvas.width / 2;
+  ctx.translate(radius, radius);
+  radius = radius * 0.90;
+
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+
+function noclock(){
+  var targetDiv = document.getElementById('clockContainer');
+  clearAndCreateElements1(targetDiv);
+  for (var i=1; i<=9;i++){
+    drawClock1('canvas'+i);
+  }
+  
+}
+
+function clearAndCreateElements1(targetDiv) {
+  // 清除目标div内的元素
+  targetDiv.innerHTML = '';
+
+  // 创建5个新元素并指定ID
+  for (var i = 1; i <= 9; i++) {
+    var newElement = document.createElement('canvas');
+    newElement.id = 'canvas' + i;
+    newElement.width='200';
+    newElement.height='300';
+
+    
+
+    // 将新元素添加到目标div中
+    targetDiv.appendChild(newElement);
+  }
+}
+
+
+function drawClock1(canvasId) {
+  var canvas;
+  
+  // 确保传递的参数是一个字符串
+  if (typeof canvasId === 'string') {
+    canvas = document.getElementById(canvasId);
+  } else {
+    console.error("Invalid canvasId: " + canvasId);
+    return;
+  }
+
+  if (!canvas) {
+    console.error("Canvas element not found with id: " + canvasId);
+    return;
+  }
+
+  var ctx = canvas.getContext("2d");
+  if (!ctx) {
+    console.error("Canvas context not supported.");
+    return;
+  }
+
+  var radius = canvas.width / 2;
+  ctx.translate(radius, radius);
+  radius = radius * 0.90;
+  
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  writeTime(ctx, radius);
+  ctx.font = '20px Arial';
+  ctx.fillText(showtimes, 0, 150);
+
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, 'black');
+  grad.addColorStop(0.5, '#333');
+  grad.addColorStop(1, 'black');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.05;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.08, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+
+  ctx.font = radius*0.2 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+
+    ctx.translate(0, -radius*0.8);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.8);
+    // ctx.rotate(-ang);
+
+    // 绘制刻度
+    ctx.beginPath();
+    ctx.moveTo(0, -radius*0.9);
+    ctx.lineTo(0, -radius);
+    ctx.lineWidth = radius*0.02;
+    ctx.strokeStyle = '#333'; // 刻度颜色
+    ctx.stroke();
+
+    //绘制分钟刻度
+
+    drawtick(ctx,radius);
+    ctx.rotate(-ang);
+    
+    
+  }
+
+}
+
+function drawtick(ctx,radius){
+  var tickLengthMinute = 5;
+
+  for (var i = 0; i < 60; i++) {
+      drawTick(tickLengthMinute, '#333');
+      var ang= i*Math.PI / 30; // 每分钟刻度之间的角度为 360 度 / 12 = 30 度
+      function drawTick(length, color) {
+        ctx.rotate(ang);
+        ctx.beginPath();
+        ctx.moveTo(0, -radius);
+        ctx.lineTo(0, -radius*0.95);
+        ctx.lineWidth = radius*0.013;
+        ctx.strokeStyle = color;
+        ctx.stroke();
+        ctx.rotate(-ang);
+    }
+
+    }
+}
+
+
+function drawTime(ctx, radius){
+    
+    var second = Math.floor(Math.random() * 61);
+    
+    var hour = Math.floor((Math.random() * 12)+1);;
+    var minute = Math.floor(Math.random() * 60);
+    var secondOn = document.getElementById('showsecond')
+    var halfclockOn = document.getElementById('halfclock')
+    var seconds,minutes,hours;
+    var options = document.querySelectorAll('input[name="options"]');
+    var selectedValue = '';
+   
+
+    for (var i = 0; i < options.length; i++) {
+    if (options[i].checked) {
+      selectedValue = options[i].value;
+      break; // 找到后跳出循环
+    }
+  }
+
+
+    switch (selectedValue) {
+    case 'option1':
+      // 选项 1 对应的代码
+      var randomIndex = Math.floor(Math.random() * 12);
+      var minuteOptions = ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55'];
+      minute = minuteOptions[randomIndex];
+      secondOn.checked = false;
+      second =0
+      break;
+    
+    case 'option2':
+      // 选项 2 对应的代码
+      var randomIndex = Math.floor(Math.random() * 6);
+      var minuteOptions = ['0',  '10', '20', '30', '40', '50'];
+      minute = minuteOptions[randomIndex];
+      secondOn.checked = false;
+      second =0
+      break;
+
+    case 'option3':
+      // 选项 3 对应的代码
+      var randomIndex = Math.floor(Math.random() * 4);
+      var minuteOptions = ['0',  '15', '30',  '45'];
+      minute = minuteOptions[randomIndex];
+      secondOn.checked = false;
+      second =0
+      break;
+
+    case 'option4':
+      // 选项 4 对应的代码
+      minute = Math.random() < 0.5 ? 0 : 30;
+      secondOn.checked = false;
+      second =0
+      break;
+
+    case 'option5':
+      // 选项 5 对应的代码
+      
+      break;
+
+    
+  }
+    // second
+    if(secondOn.checked){
+      seconds=(second*Math.PI/30);
+      drawHand(ctx, seconds, radius*0.9, radius*0.02);
+      
+    }else{
+      second = 0;
+    }
+    
+    //minute
+    minutes=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minutes, radius*0.75, radius*0.06);
+
+    //hour
+    hour=hour%12;
+    hours=(hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
+    drawHand(ctx, hours, radius*0.5, radius*0.07);
+
+
+    console.log(hour+'点'+minute+'分'+second+'秒')
+}
+
+
+
+function writeTime(ctx, radius){
+    
+    var second = Math.floor(Math.random() * 61);
+    var hour = Math.floor((Math.random() * 12)+1);;
+    var minute = Math.floor(Math.random() * 60);
+    var secondOn = document.getElementById('showsecond')  
+    var options = document.querySelectorAll('input[name="options"]');
+    var selectedValue = '';
+   
+
+    for (var i = 0; i < options.length; i++) {
+    if (options[i].checked) {
+      selectedValue = options[i].value;
+      break; // 找到后跳出循环
+    }
+  }
+
+
+    switch (selectedValue) {
+    case 'option1':
+      // 选项 1 对应的代码
+      var randomIndex = Math.floor(Math.random() * 12);
+      var minuteOptions = ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55'];
+      minute = minuteOptions[randomIndex];
+      secondOn.checked = false;
+      second =0
+      break;
+    
+    case 'option2':
+      // 选项 2 对应的代码
+      var randomIndex = Math.floor(Math.random() * 6);
+      var minuteOptions = ['0',  '10', '20', '30', '40', '50'];
+      minute = minuteOptions[randomIndex];
+      secondOn.checked = false;
+      second =0
+      break;
+
+    case 'option3':
+      // 选项 3 对应的代码
+      var randomIndex = Math.floor(Math.random() * 4);
+      var minuteOptions = ['0',  '15', '30',  '45'];
+      minute = minuteOptions[randomIndex];
+      secondOn.checked = false;
+      second =0
+      break;
+
+    case 'option4':
+      // 选项 4 对应的代码
+      minute = Math.random() < 0.5 ? 0 : 30;
+      secondOn.checked = false;
+      second =0
+      break;
+
+    case 'option5':
+      // 选项 5 对应的代码
+      
+      break;
+
+    
+  }
+    // second
+    if(secondOn.checked){
+      seconds=(second*Math.PI/30);
+      // drawHand(ctx, seconds, radius*0.9, radius*0.02);
+      
+    }else{
+      second = 0;
+    }
+    
+    //minute
+    minutes=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    // drawHand(ctx, minutes, radius*0.75, radius*0.06);
+
+    //hour
+    hour=hour%12;
+    hours=(hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
+    // drawHand(ctx, hours, radius*0.5, radius*0.07);
+
+    var formattedMinute = minute < 10 ? '0' + minute : minute.toString();
+    var formattedHour = hour < 10 ? '0' + hour : hour.toString();
+    var formattedSecond = second < 10 ? '0' + second : second.toString();
+    if(secondOn.checked){
+      showtimes=formattedHour+':'+formattedMinute+':'+formattedSecond;
+    }else{
+      showtimes=formattedHour+':'+formattedMinute;
+    }
+    console.log(hour+'点'+minute+'分'+second+'秒')
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "butt";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+</script>
+
+</body>
+</html>
