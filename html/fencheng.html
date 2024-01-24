@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>数字的分成</title>
+<style>
+    canvas {
+        border: 0px solid black;
+    }
+    @media print {
+        body * {
+          visibility: hidden;
+        }
+        canvas {
+          visibility: visible;
+        }
+        
+    }
+</style>
+</head>
+<body>
+    <h1>数字的分成</h1>
+    <label for="minRange">最小范围：</label>
+    <input type="number" id="minRange" value="1" onblur="checkMaxValue3(this)" style="width: 60px;">
+    <br>
+    <label for="maxRange">最大范围：</label>
+    <input type="number" id="maxRange" value="10" onblur="checkMaxValue2(this)" style="width: 60px;">
+    
+    <button onclick="creat()">生成分成练习题</button>
+    
+        <canvas id="canvas1" width="840" height="1180" >
+            
+        </canvas>
+
+
+   
+
+
+<script>
+
+    var sum = 10;
+    var add1 ,add2;
+    var sumxy,addxy1 ,addxy2,sumrectxy,addrectxy1,addrectxy2,leftlinexy,rightlinexy;
+    add1 = 55;
+    add2 = 42;
+    var sumx = 100;
+    var sumy = 100;
+    var mycanvas = document.getElementById('canvas1');
+    var ctx = mycanvas.getContext('2d');
+    ctx.globalAlpha = 1;
+    ctx.font='30px Verdana';
+    var fontSize = parseInt(ctx.font, 10);
+ 
+    function head(){
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font='30px Verdana'; 
+        ctx.fillText('姓名：',80,30);
+        ctx.fillText('班级：',300,30);
+        ctx.fillText('日期：',500,30);
+        ctx.fillText('得分：',700,30);
+
+    }
+
+    function creatsum(){
+        ctx.fillText(sum,sumx,sumy);
+        ctx.beginPath();
+        ctx.moveTo(sumx+sumWidth*0.5,sumy+10);
+        ctx.lineTo(sumx+sumWidth*0.5-50,sumy+10+50);
+        ctx.moveTo(sumx+sumWidth*0.5,sumy+10);
+        ctx.lineTo(sumx+sumWidth*0.5+50,sumy+10+50);
+        ctx.fillText(add1,sumx+sumWidth*0.5-50-add1Width*0.5,sumy+10+50+10+fontSize*0.9);
+        
+        ctx.rect(sumx+sumWidth*0.5+50-20,sumy+10+50+10,40,40);
+        
+        ctx.stroke();
+        
+        
+    }
+
+    function drawnum(num,xy){
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(num,xy[0],xy[1]);
+    }
+
+    function drawline(xy){
+        ctx.beginPath();
+        ctx.moveTo(xy[0],xy[1]);
+        ctx.lineTo(xy[2],xy[3]);
+        ctx.stroke();
+    }
+
+    function drawrect(xy,width,height){
+        ctx.rect(xy[0],xy[1],width,height);
+        ctx.stroke();
+    }
+
+    function findxy(x,y){
+        sumxy=[x,y];
+        addxy1=[x-fontSize-10,y+(fontSize+10)*2];
+        addxy2=[x+fontSize+10,y+(fontSize+10)*2];
+        sumrectxy=[x-fontSize*0.5,y-fontSize*0.5];
+        addrectxy1=[x-(fontSize*1.5+10),y+(fontSize*1.5+20)];
+        addrectxy2=[x+(fontSize*0.5+10),y+(fontSize*1.5+20)];
+        leftlinexy=[x,y+(fontSize+10)*0.5,x-(fontSize+10),y+(fontSize+10)*1.5];
+        rightlinexy=[x,y+(fontSize+10)*0.5,x+(fontSize+10),y+(fontSize+10)*1.5];
+
+    }
+
+    function creat(){
+        ctx.clearRect(0, 0, mycanvas.width, mycanvas.height);
+        sumx=100;
+        sumy=100;
+        head();
+        for(var j=1;j<25;j++){
+
+            findxy(sumx,sumy);
+            checknum();
+            var i = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+            switch(i){
+                case 1:
+                    drawnum(sum,sumxy);
+                    drawnum(add2,addxy2);
+                    drawline(leftlinexy);
+                    drawline(rightlinexy);
+                    drawrect(addrectxy1,fontSize,fontSize);
+                    break;
+                case 2:
+                    drawnum(sum,sumxy);
+                    drawnum(add1,addxy1);
+                    drawline(leftlinexy);
+                    drawline(rightlinexy);
+                    drawrect(addrectxy2,fontSize,fontSize);
+                    break;
+                case 3:
+                    drawnum(add1,addxy1);
+                    drawnum(add2,addxy2);
+                    drawline(leftlinexy);
+                    drawline(rightlinexy);
+                    drawrect(sumrectxy,fontSize,fontSize);
+                    break;
+            }
+            sumx=sumx+200;
+            if(sumx>800){
+                sumy=sumy+190;
+                sumx=100;
+                
+            }
+        }
+
+
+    }
+
+
+    function checknum(){
+        var minRange = parseInt(document.getElementById("minRange").value);
+        var maxRange = parseInt(document.getElementById('maxRange').value);
+        var i = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        
+        sum = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+        add1 = Math.floor(Math.random() * (sum - minRange + 1)) + minRange;
+        add2 = sum-add1;
+        
+
+
+    }
+
+    function checkrect(){
+
+
+    }
+
+
+    function checkMaxValue2(input) {
+        if (input.value > 1000) {
+            input.value = 1000;
+        }
+        if (input.value < 1) {
+            input.value = 1;
+        }
+    }
+
+    function checkMaxValue3(input) {
+        if (input.value < -1000) {
+            input.value = -1000;
+        }
+        if (input.value > 1000) {
+            input.value = 1000;
+        }
+        if (input.value ==='') {
+            input.value = 0;
+        }
+        if (input.value > parseInt(document.getElementById('maxRange').value)) {
+          document.getElementById('maxRange').value = input.value;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>    
+
+</body>
+</html>
