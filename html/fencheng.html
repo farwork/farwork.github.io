@@ -25,16 +25,18 @@
     <br>
     <label for="maxRange">最大范围：</label>
     <input type="number" id="maxRange" value="10" onblur="checkMaxValue2(this)" style="width: 60px;">
-    
+    <!-- <input type="checkbox" id="jgfw">
+    <label for="jgfw">结果在此范围内</label> -->
+    <!-- <br> -->
+    <!-- <button onclick="checknum()">生成分成</button> -->
     <button onclick="creat()">生成分成练习题</button>
-    <div>
+    <div id="canvasexample">
         <canvas id="canvas1" width="840" height="1180" >
             
         </canvas>
+
+
     </div>
-
-
-   
 
 
 <script>
@@ -71,11 +73,11 @@
         ctx.moveTo(sumx+sumWidth*0.5,sumy+10);
         ctx.lineTo(sumx+sumWidth*0.5+50,sumy+10+50);
         ctx.fillText(add1,sumx+sumWidth*0.5-50-add1Width*0.5,sumy+10+50+10+fontSize*0.9);
-        
+        // ctx.fillText('( )',sumx-sumWidth*1.5,sumy+sumWidth*2.25);
         ctx.rect(sumx+sumWidth*0.5+50-20,sumy+10+50+10,40,40);
-        
+        // ctx.rect(sumx,sumy-sumWidth,40,40);
         ctx.stroke();
-        
+        console.log(fontSize);
         
     }
 
@@ -146,7 +148,7 @@
             if(sumx>800){
                 sumy=sumy+190;
                 sumx=100;
-                
+                // drawline()
             }
         }
 
@@ -162,7 +164,7 @@
         sum = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
         add1 = Math.floor(Math.random() * (sum - minRange + 1)) + minRange;
         add2 = sum-add1;
-        
+        console.log(i);
 
 
     }
@@ -183,8 +185,8 @@
     }
 
     function checkMaxValue3(input) {
-        if (input.value < -1000) {
-            input.value = -1000;
+        if (input.value <= 0) {
+            input.value = 0;
         }
         if (input.value > 1000) {
             input.value = 1000;
