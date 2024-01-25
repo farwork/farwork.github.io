@@ -4,18 +4,31 @@
 <meta charset="UTF-8">
 <title>数字的分成</title>
 <style>
-    canvas {
+    /* canvas {
         border: 0px solid black;
-    }
+    } */
     @media print {
+    
         body * {
-          visibility: hidden;
+        visibility: hidden;
+        /* display: none; */
         }
         canvas {
-          visibility: visible;
+            visibility: visible;
+            display: block;
         }
-        
-    }
+        div {
+          position: absolute;
+          display: block; /* 将元素作为块级元素显示 */
+          top:0;
+          margin-top: 5%;
+          margin-right: 5%;
+          /* margin-bottom: 5%; */
+          margin-left: 5%;
+        }
+}
+
+
 </style>
 </head>
 <body>
@@ -185,8 +198,8 @@
     }
 
     function checkMaxValue3(input) {
-        if (input.value <= 0) {
-            input.value = 0;
+        if (input.value < 0) {
+            input.value = 1;
         }
         if (input.value > 1000) {
             input.value = 1000;
