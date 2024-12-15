@@ -37,7 +37,11 @@ https://app.hfbtc.cn/hls/ggpd.m3u8?key=45dcefa6c75f3d6020aa2ab9c7a3b2b4&st=f2d_u
 #EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV1
 http://117.161.12.116/live/program/live/cctv1hd/4000000/mnf.m3u8
 #EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV1
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227262/1.m3u8
+#EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV1
 http://117.161.12.116/live/program/live/cctv1hd8m/8000000/mnf.m3u8
+#EXTINF:-1 tvg-name="CCTV2" tvg-logo="https://live.fanmingming.com/tv/CCTV2.png" group-title="河南频道",CCTV2
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226569/1.m3u8
 #EXTINF:-1 tvg-name="CCTV12" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV12
 http://117.161.12.116/live/program/live/cctv12hd8m/8000000/mnf.m3u8
 #EXTINF:-1 tvg-name="CCTV12" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV12
