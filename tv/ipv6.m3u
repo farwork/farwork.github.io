@@ -1,6 +1,8 @@
 #EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml"
 #EXTVLCOPT:http-referrer=https://www.hntv.tv/
 #EXTINF:-1 tvg-name="河南卫视" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",河南卫视综合
+http://117.161.12.116/live/program/live/hnwshd8m/8000000/mnf.m3u8
+#EXTINF:-1 tvg-name="河南卫视" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",河南卫视综合
 http://tvcdn.stream3.hndt.com/tv/65c4a6d5017e1000b2b6ea2500000000_transios/playlist.m3u8?wsSecret=93e962ddc5116db3ee829981be8adf87&wsTime=1734252593
 #EXTINF:-1 tvg-name="河南卫视" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",河南卫视综合
 http://117.161.12.116/live/program/live/hnws/1300000/mnf.m3u8
