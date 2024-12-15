@@ -18,6 +18,7 @@ http://[2408:8720:800:25::19]/tvcdn.stream3.hndt.com/tv/65c3fbc5017e1000fde13faa
 https://tvcdn.stream3.hndt.com/tv/65c3fbc5017e1000fde13faa00000000_transios/playlist.m3u8?wsSecret=97c6924d94743ad7952237d0b3642f61&wsTime=1734248716
 #EXTINF:-1 tvg-name="濮阳综合" tvg-logo="https://live.fanmingming.com/tv/CCTV5+.png" group-title="河南频道",濮阳综合
 https://tvcdn.stream3.hndt.com/tv/5ac4f236019110000835777900000000_transios/playlist.m3u8?wsSecret=6b44dadf109b823e1ac00d26fa47b58f&wsTime=1734253925
+https://2408x8720x800x25x0x0x0x19-tvcdnstream3hndtcom.wslivehls.com/tvcdn.stream3.hndt.com/tv/5ac4f236019110000835777900000000_transios/playlist.m3u8?wsSecret=6b44dadf109b823e1ac00d26fa47b58f&wsTime=1734253925&wsSession=eaa00b2c2c0390cafb18ec02-173424038718212&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="河南法治" tvg-logo="https://live.fanmingming.com/tv/CCTV4.png" group-title="河南频道",河南法治频道
 http://tvcdn.stream3.hndt.com/tv/65be54a9017e1000af59fb4800000000_transios/playlist.m3u8?wsSecret=35b2c11539ca9413532359fcc942f67b&wsTime=1734248751
 http://[2408:8720:800:25::25]/tvcdn.stream3.hndt.com/tv/65be54a9017e1000af59fb4800000000_transios/playlist.m3u8?wsSecret=35b2c11539ca9413532359fcc942f67b&wsTime=1734248751&wsSession=fdae2e2d3b692f073091c360-173423993143374&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
