@@ -32,3 +32,5 @@ https://2408x8720x800x25x0x0x0x19-tvcdnstream3hndtcom.wslivehls.com/tvcdn.stream
 http://tvcdn.stream3.hndt.com/tv/65be54a9017e1000af59fb4800000000_transios/playlist.m3u8?wsSecret=35b2c11539ca9413532359fcc942f67b&wsTime=1734248751
 #EXTINF:-1 tvg-name="河南法治" tvg-logo="https://live.fanmingming.com/tv/CCTV4.png" group-title="河南频道",河南法治频道
 http://[2408:8720:800:25::25]/tvcdn.stream3.hndt.com/tv/65be54a9017e1000af59fb4800000000_transios/playlist.m3u8?wsSecret=35b2c11539ca9413532359fcc942f67b&wsTime=1734248751&wsSession=fdae2e2d3b692f073091c360-173423993143374&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
+#EXTINF:-1 tvg-name="河南法治" tvg-logo="https://live.fanmingming.com/tv/CCTV4.png" group-title="河南频道",河南法治频道
+https://app.hfbtc.cn/hls/ggpd.m3u8?key=45dcefa6c75f3d6020aa2ab9c7a3b2b4&st=f2d_uadz5JNeVF5XfHN-Bw&e=1734245785
