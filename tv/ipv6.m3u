@@ -36,5 +36,9 @@ http://[2408:8720:800:25::25]/tvcdn.stream3.hndt.com/tv/65be54a9017e1000af59fb48
 https://app.hfbtc.cn/hls/ggpd.m3u8?key=45dcefa6c75f3d6020aa2ab9c7a3b2b4&st=f2d_uadz5JNeVF5XfHN-Bw&e=1734245785
 #EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV1
 http://117.161.12.116/live/program/live/cctv1hd/4000000/mnf.m3u8
+#EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV1
+http://117.161.12.116/live/program/live/cctv1hd8m/8000000/mnf.m3u8
+#EXTINF:-1 tvg-name="CCTV12" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV12
+http://117.161.12.116/live/program/live/cctv12hd8m/8000000/mnf.m3u8
 #EXTINF:-1 tvg-name="CCTV13" tvg-logo="https://live.fanmingming.com/tv/CCTV13.png" group-title="河南频道",CCTV13
 http://hls.hsrtv.cn/live/hsyouxian.m3u8
