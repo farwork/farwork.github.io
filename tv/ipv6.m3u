@@ -25,7 +25,7 @@ http://[2408:8720:800:25::22]/tvcdn.stream3.hndt.com/tv/65bb6966017e100059b75a85
 #EXTINF:-1 tvg-name="河南都市" tvg-logo="https://live.fanmingming.com/tv/CCTV5.png" group-title="河南频道",河南都市频道
 http://[2408:8720:800:25::19]/tvcdn.stream3.hndt.com/tv/65c3fbc5017e1000fde13faa00000000_transios/playlist.m3u8?wsSecret=48539a12452c342ccbf226b93baab2f0&wsTime=1734245148&wsSession=eaa00b2c2c0390cafb18ec02-173423958571424&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="河南都市" tvg-logo="https://live.fanmingming.com/tv/CCTV5.png" group-title="河南频道",河南都市频道
-https://2408X8719X5300X0X0X0X0X51-tvcdnstream3hndtcom.wslivehls.com/tvcdn.stream3.hndt.com/tv/65c3fbc5017e1000fde13faa00000000_transios/playlist.m3u8?wsSecret=06ec73c386a41f7720a30aadde399824&wsTime=1734342318&wsSession=b8d48e8655cc602a172ae6d0-173432826780223&wsIPSercert=5ce8748d364fff49916c8f1deb9557d7&wsiphost=local&wsBindIP=1
+https://2408x8719x5300x0x0x0x0x51-tvcdnstream3hndtcom.wslivehls.com/tvcdn.stream3.hndt.com/tv/65c3fbc5017e1000fde13faa00000000_transios/playlist.m3u8?wsSecret=5cbd61fe528cc94dedeb6b12d548feda&wsTime=1734424518&wsSession=b8d48e8655cc602a172ae6d0-173441076887701&wsIPSercert=a42ea43b940f6c97f1c8f5bd96e311bb&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="濮阳综合" tvg-logo="https://live.fanmingming.com/tv/CCTV5+.png" group-title="河南频道",濮阳综合
 https://tvcdn.stream3.hndt.com/tv/5ac4f236019110000835777900000000_transios/playlist.m3u8?wsSecret=6b44dadf109b823e1ac00d26fa47b58f&wsTime=1734253925
 #EXTINF:-1 tvg-name="濮阳综合" tvg-logo="https://live.fanmingming.com/tv/CCTV5+.png" group-title="河南频道",濮阳综合
