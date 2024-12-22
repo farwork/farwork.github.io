@@ -7,48 +7,48 @@ https://1gr3dgmtsfa4ugmt1gesze7udctznhh5wqj1sn5juf3wgh3dwf3ts65e.wslivehls.com/t
 #EXTINF:-1 tvg-name="河南公共" tvg-logo="https://live.fanmingming.com/tv/河南公共.png" group-title="河南频道",河南公共频道
 https://1gr3dgmtsfa4ugmt1gesze7udctznhh5wqj1sn5juf3wgh3dwf3ts65e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65b93894017e10000ae6b07d00000000_transios/playlist.m3u8?wsSecret=f083befe638ce60af9cfbdeb946613f9&wsTime=1734831308&wsSession=3eb5ce23a6a9a66f8e87c6b8-173481916927715&wsIPSercert=3123de1674fc2e563428e8e5f3ee0292&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="河南公共" tvg-logo="https://live.fanmingming.com/tv/河南公共.png" group-title="河南频道",河南公共频道
-http://[2408:8720:800:25::1c]/tvcdn.stream3.hndt.com/tv/65b93894017e10000ae6b07d00000000_transios/playlist.m3u8?wsSecret=da2f5cbfc9039852877530630fc22053&wsTime=1734248386&wsSession=d1003f8ad7c950543804a0c4-173424017936657&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="河南公共" tvg-logo="https://live.fanmingming.com/tv/河南公共.png" group-title="河南频道",河南公共频道
 http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226566/1.m3u8
 #EXTINF:-1 tvg-name="河南民生" tvg-logo="https://live.fanmingming.com/tv/河南民生.png" group-title="河南频道",河南民生频道
-https://3ge3drmttgc4nhptsfa3drcbpqt5gg3dqf33zehufcfsugmuep318e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65bef28a017e10009c49d5f900000000_transios/playlist.m3u8?wsSecret=94758ac8470dc43d8384c9676d13c1e4&wsTime=1734616525&wsSession=d3898e99103210c1b9806cbd-173460265295017&wsIPSercert=59232c1a6336d87a9b069e6cf8775147&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="河南民生" tvg-logo="https://live.fanmingming.com/tv/河南民生.png" group-title="河南频道",河南民生频道
-http://[2408:8720:800:25::21]/tvcdn.stream3.hndt.com/tv/65bef28a017e10009c49d5f900000000_transios/playlist.m3u8?wsSecret=a22b343e3324b89adb880988b47f32b8&wsTime=1734245129&wsSession=9a7845a979da830985080e0b-173424010383982&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
+https://1gr3dgmtsfa4ugmtsgysze7udctznhh5wqj1sn5juf3wgh3dwf3ts65e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65bef28a017e10009c49d5f900000000_transios/playlist.m3u8?wsSecret=c9ce67a414b8647acc8c1110ee3ce431&wsTime=1734831308&wsSession=9a7845a979da830985080e0b-173481900520303&wsIPSercert=3123de1674fc2e563428e8e5f3ee0292&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="河南新闻" tvg-logo="https://live.fanmingming.com/tv/河南新闻.png" group-title="河南频道",河南新闻频道
-https://3ge3drmttgc4nhptsfa3dnqbpqt5gg3dqf33zehufcfsugmuep318e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65bb6966017e100059b75a8500000000_transios/playlist.m3u8?wsSecret=c6d9ceb515072cff1efac190a7fbff79&wsTime=1734616525&wsSession=0e32be63a6911d60b9dcb460-173460231060951&wsIPSercert=59232c1a6336d87a9b069e6cf8775147&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="河南新闻" tvg-logo="https://live.fanmingming.com/tv/河南新闻.png" group-title="河南频道",河南新闻频道
-http://[2408:8720:800:25::22]/tvcdn.stream3.hndt.com/tv/65bb6966017e100059b75a8500000000_transios/playlist.m3u8?wsSecret=e5bc40a31806d5256bf4bed3a56cdfd4&wsTime=1734248310&wsSession=f6bcc71f34b06e3f2f895efc-173424014491660&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
+https://1gr3dgmtsfa4ugmtsgesze7udctznhh5wqj1sn5juf3wgh3dwf3ts65e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65bb6966017e100059b75a8500000000_transios/playlist.m3u8?wsSecret=e3a00de46b2a46435f427737f689867a&wsTime=1734831308&wsSession=f6bcc71f34b06e3f2f895efc-173481886426619&wsIPSercert=3123de1674fc2e563428e8e5f3ee0292&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="河南都市" tvg-logo="https://live.fanmingming.com/tv/河南都市.png" group-title="河南频道",河南都市频道
-http://[2408:8720:800:25::19]/tvcdn.stream3.hndt.com/tv/65c3fbc5017e1000fde13faa00000000_transios/playlist.m3u8?wsSecret=48539a12452c342ccbf226b93baab2f0&wsTime=1734245148&wsSession=eaa00b2c2c0390cafb18ec02-173423958571424&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="河南都市" tvg-logo="https://live.fanmingming.com/tv/河南都市.png" group-title="河南频道",河南都市频道
-https://3ge3drmttgc4nhptsfa3dnqbpqt5gg3dqf33zehufcfsugmuep318e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65c3fbc5017e1000fde13faa00000000_transios/playlist.m3u8?wsSecret=1cbbafc8866dcd3858a1baf6e51ae0ee&wsTime=1734616525&wsSession=0e32be63a6911d60b9dcb460-173460258757698&wsIPSercert=59232c1a6336d87a9b069e6cf8775147&wsiphost=local&wsBindIP=1
+https://1gr3dgmtsfa4ugmt1grsze7udctznhh5wqj1sn5juf3wgh3dwf3ts65e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65c3fbc5017e1000fde13faa00000000_transios/playlist.m3u8?wsSecret=044323bc684c7a47ac7b7497606225a0&wsTime=1734831308&wsSession=eaa00b2c2c0390cafb18ec02-173481895030381&wsIPSercert=3123de1674fc2e563428e8e5f3ee0292&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="濮阳综合" tvg-logo="https://live.fanmingming.com/tv/CCTV5+.png" group-title="河南频道",濮阳综合
 https://tvcdn.stream3.hndt.com/tv/5ac4f236019110000835777900000000_transios/playlist.m3u8?wsSecret=6b44dadf109b823e1ac00d26fa47b58f&wsTime=1734253925
 #EXTINF:-1 tvg-name="濮阳综合" tvg-logo="https://live.fanmingming.com/tv/CCTV5+.png" group-title="河南频道",濮阳综合
 https://3ge3drmttgc4nhptsfa3dnqbpqt5gg3dqf33zehufcfsugmuep318e.wslivehls.com/tvcdn.stream3.hndt.com/tv/5ac4f236019110000835777900000000_transios/playlist.m3u8?wsSecret=6b44dadf109b823e1ac00d26fa47b58f&wsTime=1734253925&wsSession=eaa00b2c2c0390cafb18ec02-173424038718212&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="河南法治" tvg-logo="https://live.fanmingming.com/tv/河南法治.png" group-title="河南频道",河南法治频道
-https://3ge3drmttgc4nhptsfa3dypbpqt5gg3dqf33zehufcfsugmuep318e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65be54a9017e1000af59fb4800000000_transios/playlist.m3u8?wsSecret=656cc26d12e7ce91a4cbd097144c6e65&wsTime=1734616525&wsSession=09e5f80d02a4f33f00e00542-173460269211195&wsIPSercert=59232c1a6336d87a9b069e6cf8775147&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="河南法治" tvg-logo="https://live.fanmingming.com/tv/河南法治.png" group-title="河南频道",河南法治频道
-http://[2408:8720:800:25::25]/tvcdn.stream3.hndt.com/tv/65be54a9017e1000af59fb4800000000_transios/playlist.m3u8?wsSecret=35b2c11539ca9413532359fcc942f67b&wsTime=1734248751&wsSession=fdae2e2d3b692f073091c360-173423993143374&wsIPSercert=c62db0f2b2125a2e076e29b0cfef86ea&wsiphost=local&wsBindIP=1
+https://1gr3dgmtsfa4ugmt1gesze7udctznhh5wqj1sn5juf3wgh3dwf3ts65e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65be54a9017e1000af59fb4800000000_transios/playlist.m3u8?wsSecret=19c8c505da96f5f19dabcdb8edea38d7&wsTime=1734831308&wsSession=3eb5ce23a6a9a66f8e87c6b8-173481911866461&wsIPSercert=3123de1674fc2e563428e8e5f3ee0292&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="河南电视剧" tvg-logo="https://live.fanmingming.com/tv/河南电视剧.png" group-title="河南频道",河南电视剧频道
-https://3ge3drmttgc4nhptsfa3drcbpqt5gg3dqf33zehufcfsugmuep318e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65bd329b017e1000648cd2ed00000000_transios/playlist.m3u8?wsSecret=55f65f12748874da952857e6f86a4c54&wsTime=1734616525&wsSession=d3898e99103210c1b9806cbd-173460284128099&wsIPSercert=59232c1a6336d87a9b069e6cf8775147&wsiphost=local&wsBindIP=1
+https://1gr3dgmtsfa4ugmt1gesze7udctznhh5wqj1sn5juf3wgh3dwf3ts65e.wslivehls.com/tvcdn.stream3.hndt.com/tv/65bd329b017e1000648cd2ed00000000_transios/playlist.m3u8?wsSecret=ed16f0b3edb3c55e593cb88f75beaf1f&wsTime=1734831308&wsSession=3eb5ce23a6a9a66f8e87c6b8-173481935902584&wsIPSercert=3123de1674fc2e563428e8e5f3ee0292&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV1
-https://app.hfbtc.cn/hls/ggpd.m3u8?key=45dcefa6c75f3d6020aa2ab9c7a3b2b4&st=f2d_uadz5JNeVF5XfHN-Bw&e=1734245785
+http://115.149.139.141:10000/tsfile/live/1004_1.m3u8?key=txiptv&playlive=0&authid=0
 #EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV1
-http://117.161.12.116/live/program/live/cctv1hd/4000000/mnf.m3u8
+http://115.149.139.141:10001/tsfile/live/1004_1.m3u8
 #EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV1
 http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227262/1.m3u8
 #EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",CCTV1
-http://117.161.12.116/live/program/live/cctv1hd8m/8000000/mnf.m3u8
+http://lu.wqwqwq.sbs/itv/6000000001000029752.m3u8?cdn=wasusyt
+#EXTINF:-1 tvg-name="CCTV2" tvg-logo="https://live.fanmingming.com/tv/CCTV2.png" group-title="河南频道",CCTV2
+http://115.149.139.141:10000/tsfile/live/1005_1.m3u8?key=txiptv&playlive=0&authid=0
+#EXTINF:-1 tvg-name="CCTV2" tvg-logo="https://live.fanmingming.com/tv/CCTV2.png" group-title="河南频道",CCTV2
+http://115.149.139.141:10001/tsfile/live/1005_1.m3u8
+#EXTINF:-1 tvg-name="CCTV2" tvg-logo="https://live.fanmingming.com/tv/CCTV2.png" group-title="河南频道",CCTV2
+http://lu.wqwqwq.sbs/itv/1000000001000023315.m3u8?cdn=ystenlive
 #EXTINF:-1 tvg-name="CCTV2" tvg-logo="https://live.fanmingming.com/tv/CCTV2.png" group-title="河南频道",CCTV2
 http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226569/1.m3u8
 #EXTINF:-1 tvg-name="CCTV12" tvg-logo="https://live.fanmingming.com/tv/CCTV12.png" group-title="河南频道",CCTV12
-http://117.161.12.116/live/program/live/cctv12hd8m/8000000/mnf.m3u8
+http://lu.wqwqwq.sbs/itv/1000000001000032494.m3u8?cdn=ystenlive
 #EXTINF:-1 tvg-name="CCTV12" tvg-logo="https://live.fanmingming.com/tv/CCTV12.png" group-title="河南频道",CCTV12
-http://117.161.12.116/live/program/live/cctv12/1300000/mnf.m3u8
+http://115.149.139.141:10000/tsfile/live/1013_1.m3u8?key=txiptv&playlive=0&authid=0
+#EXTINF:-1 tvg-name="CCTV12" tvg-logo="https://live.fanmingming.com/tv/CCTV12.png" group-title="河南频道",CCTV12
+http://115.149.139.141:10001/tsfile/live/1013_1.m3u8
 #EXTINF:-1 tvg-name="CCTV13" tvg-logo="https://live.fanmingming.com/tv/CCTV13.png" group-title="河南频道",CCTV13
 http://hls.hsrtv.cn/live/hsyouxian.m3u8
 #EXTINF:-1 tvg-name="CCTV13" tvg-logo="https://live.fanmingming.com/tv/CCTV13.png" group-title="河南频道",CCTV13
-http://117.161.12.116/live/program/live/cctvxw/1300000/mnf.m3u8
+http://115.149.139.141:10000/tsfile/live/1014_1.m3u8?key=txiptv&playlive=0&authid=0
 #EXTINF:-1 tvg-name="CCTV13" tvg-logo="https://live.fanmingming.com/tv/CCTV13.png" group-title="河南频道",CCTV13
-http://117.161.12.116/live/program/live/cctv13xwhd8m/8000000/mnf.m3u8
+http://115.149.139.141:10001/tsfile/live/1014_1.m3u8
+#EXTINF:-1 tvg-name="CCTV13" tvg-logo="https://live.fanmingming.com/tv/CCTV13.png" group-title="河南频道",CCTV13
+http://lu.wqwqwq.sbs/itv/5000000011000031108.m3u8?cdn=bestzb
