@@ -1,14 +1,22 @@
 #EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml"
 #EXTVLCOPT:http-referrer=https://www.hntv.tv/
-#EXTINF:-1 tvg-name="河南卫视" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",河南卫视综合
-https://0gc5nhcjigyzdgcjq8ra147dscp1ghmuuqt3gkampgczgo5urqozgg55p.wslivehls.com/tvcdn.stream3.hndt.com/tv/65c4a6d5017e1000b2b6ea2500000000_transios/playlist.m3u8?wsSecret=44e4ef2f822243d35909546556d2a821&wsTime=1734063012&wsSession=bc7f969cb52cd40cb660ad55-173404865728267&wsIPSercert=e879e4f4688be01e8e298d21d9debf8c&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="河南公共" tvg-logo="https://live.fanmingming.com/tv/CCTV2.png" group-title="河南频道",河南公共频道
-https://4gc5nhcjigyzdgcjqgrhuymmwq3tse5tqqp48r3mbpw31h4dqct4y.wslivehls.com/tvcdn.stream3.hndt.com/tv/65b93894017e10000ae6b07d00000000_transios/playlist.m3u8?wsSecret=2d7cabe3c601b35154638b1551ab2ea9&wsTime=1734063012&wsSession=17c47e9ea7dee5e6b660ad02-173404936803897&wsIPSercert=e879e4f4688be01e8e298d21d9debf8c&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="河南民生" tvg-logo="https://live.fanmingming.com/tv/CCTV3.png" group-title="河南频道",河南民生频道
-https://4gc5nhcjigyzdgcjqgrhd1mmwq3tse5tqqp48r3mbpw31h4dqct4y.wslivehls.com/tvcdn.stream3.hndt.com/tv/65bef28a017e10009c49d5f900000000_transios/playlist.m3u8?wsSecret=4ee7e889714a2fb264ca94e3e58f5a0a&wsTime=1734063012&wsSession=c69b3dfd394641167085b8aa-173404907376836&wsIPSercert=e879e4f4688be01e8e298d21d9debf8c&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="河南新闻" tvg-logo="https://live.fanmingming.com/tv/CCTV4.png" group-title="河南频道",河南新闻频道
-https://4gc5nhcjigyzdgcjqgrhdcmmwq3tse5tqqp48r3mbpw31h4dqct4y.wslivehls.com/tvcdn.stream3.hndt.com/tv/65bb6966017e100059b75a8500000000_transios/playlist.m3u8?wsSecret=d975d58536037638554d2ec1ab1ec1d9&wsTime=1734063012&wsSession=7bac022e1b60f5fb59bd2f1a-173404903951743&wsIPSercert=e879e4f4688be01e8e298d21d9debf8c&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="河南都市" tvg-logo="https://live.fanmingming.com/tv/CCTV5.png" group-title="河南频道",河南都市频道
-https://4gc5nhcjigyzdgcjqgrhd1mmwq3tse5tqqp48r3mbpw31h4dqct4y.wslivehls.com/tvcdn.stream3.hndt.com/tv/65c3fbc5017e1000fde13faa00000000_transios/playlist.m3u8?wsSecret=8c8534dd8371091c8f91263e0db69bc6&wsTime=1734063012&wsSession=c69b3dfd394641167085b8aa-173404891428320&wsIPSercert=e879e4f4688be01e8e298d21d9debf8c&wsiphost=local&wsBindIP=1
-#EXTINF:-1 tvg-name="濮阳综合" tvg-logo="https://live.fanmingming.com/tv/CCTV5+.png" group-title="河南频道",濮阳综合
-https://4gc5nhcjigyzdgcjqgrhd1mmwq3tse5tqqp48r3mbpw31h4dqct4y.wslivehls.com/tvcdn.stream3.hndt.com/tv/5ac4f236019110000835777900000000_transios/playlist.m3u8?wsSecret=c2e7e0dff327764ed0a34e74af8ba48d&wsTime=1734068726&wsSession=c69b3dfd394641167085b8aa-173405436580387&wsIPSercert=e879e4f4688be01e8e298d21d9debf8c&wsiphost=local&wsBindIP=1
+#EXTINF:-1 tvg-name="拼音1讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音1讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/6AD70BBB777AB5A96C74C07628372C9DED32A842A6990269A0.mp4
+#EXTINF:-1 tvg-name="拼音2讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音2讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/E43ACE917686F45B6765F5CA3AD7DBA62E2ACC78D0338C5127.mp4
+#EXTINF:-1 tvg-name="拼音3讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音3讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/D3C0251C1B501F2CDA248545A845763183AA493B309D40CC5A.mp4
+#EXTINF:-1 tvg-name="拼音4讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音4讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/DA2C4F73D638D16BAA307B7A3C3E29CA6686A743F4283F7D29.mp4
+#EXTINF:-1 tvg-name="拼音5讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音5讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/36FCFFC78ECC95F4423A0F53A508736AB0B49AEADCF879F5FD.mp4
+#EXTINF:-1 tvg-name="拼音6讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音6讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/77E441071671E60614CF96BDBC8F8839B44F94C26E7FC5BEA2.mp4
+#EXTINF:-1 tvg-name="拼音7讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音7讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/61FD234C69BE830DDBAEE339A5B78745C74301AF2E5F0159F1.mp4
+#EXTINF:-1 tvg-name="拼音8讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音8讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/C6FDB6010A8FA244667AE5256C158101638D47ED05F4B00F58.mp4
+#EXTINF:-1 tvg-name="拼音9讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音9讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/A9E0906C49D12539E68144DBD6414F1EF24D65A02A5A1DD1E1.mp4
+#EXTINF:-1 tvg-name="拼音10讲" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="拼音学习",拼音10讲
+https://xjs-static.jiaoyanyun.com/video-tool/mine-product/W000546/D0611A6B5873D2B3789C88B238231436889193661AC0BB7951.mp4
