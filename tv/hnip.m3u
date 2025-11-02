@@ -1,7 +1,7 @@
 #EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml"
 #EXTVLCOPT:http-referrer=https://www.hntv.tv/
 #EXTINF:-1 tvg-name="河南卫视" tvg-logo="https://live.fanmingming.com/tv/CCTV1.png" group-title="河南频道",河南卫视综合
-https://0gc5nhcjigyzdgcjq8ra147dscp1ghmuuqt3gkampgczgo5urqozgg55p.wslivehls.com/tvcdn.stream3.hndt.com/tv/65c4a6d5017e1000b2b6ea2500000000_transios/playlist.m3u8?wsSecret=44e4ef2f822243d35909546556d2a821&wsTime=1734063012&wsSession=bc7f969cb52cd40cb660ad55-173404865728267&wsIPSercert=e879e4f4688be01e8e298d21d9debf8c&wsiphost=local&wsBindIP=1
+https://tfqi0graukmtigozdnqbqgo4n47dscp1ghmuuqt3gkampgczgo5urqozgg55p.100ycdn.com/tvcdn.stream3.hndt.com/tv/65c4a6d5017e1000b2b6ea2500000000_transios/playlist.m3u8?wsSecret=e7b25b2ca4fceee82ca201291d0c67ce&wsTime=1762086619&wsSession=d954fb19f3f490ac50e66480-176207266210554&wsIPSercert=686f502b7a53b3b9b123ce74c45c93fd&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="河南公共" tvg-logo="https://live.fanmingming.com/tv/CCTV2.png" group-title="河南频道",河南公共频道
 https://4gc5nhcjigyzdgcjqgrhuymmwq3tse5tqqp48r3mbpw31h4dqct4y.wslivehls.com/tvcdn.stream3.hndt.com/tv/65b93894017e10000ae6b07d00000000_transios/playlist.m3u8?wsSecret=2d7cabe3c601b35154638b1551ab2ea9&wsTime=1734063012&wsSession=17c47e9ea7dee5e6b660ad02-173404936803897&wsIPSercert=e879e4f4688be01e8e298d21d9debf8c&wsiphost=local&wsBindIP=1
 #EXTINF:-1 tvg-name="河南民生" tvg-logo="https://live.fanmingming.com/tv/CCTV3.png" group-title="河南频道",河南民生频道
